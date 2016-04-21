@@ -16,10 +16,13 @@ This repository contains resource to run CapiTainS web services and frontend usi
 
 ## Creating a container
 	
-**Before going**
+**Before starting**
+
 - Replace /path/to/ by your own absolute path to given directory.
 - If you used a local build, *save the hash* given at the end of the build (such as `475d347abade`). If you do not understand this sentence, do not worry, docker will download the latest version of the source image.
-	
+
+**Guide**
+
 - If you do not have any resources, we advice to run locally the following commands :
 	- `sh download-perseus-csel.sh` will download zipped repositories of Perseus Greek and Latin litterature and the CSEL repository of the Open Greek and Latin project
 	- `sh unzip-corpora-local-volume` will unzip downloaded repositories in the repository folder.
