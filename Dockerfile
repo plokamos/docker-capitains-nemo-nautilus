@@ -25,6 +25,9 @@ ADD ./nginx.conf /etc/nginx/nginx.conf
 ADD ./app.py ./app.py
 ADD ./assets /code/static/assets
 
+VOLUME /opt/data
+VOLUME /opt/cache
+
 # Expose right ports
 EXPOSE 80
 
