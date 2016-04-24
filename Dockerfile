@@ -14,22 +14,22 @@ WORKDIR /code/
 # Required by supervisor which runs on python 2.7 apparently
 RUN pip2.7 install supervisor-stdout
 
-# Install our apps dependencies
-ADD ./requirements-py3.txt requirements-py3.txt
-RUN pip3 install -r requirements-py3.txt
-
 # Get the main app and configuration files
 # File management (everything after an ADD is uncached) so we do it as late as possible in the process.
-ADD ./supervisord.conf /etc/supervisord.conf
-ADD ./nginx.conf /etc/nginx/nginx.conf
-ADD ./app.py ./app.py
-ADD ./assets /code/static/assets
+ADD ./resources ./
+RUN cp ./nginx.conf /etc/nginx/nginx.conf
+ADD ./assets ./static/assets
+ADD ./config ./config
+
+RUN pip3 install -r requirements-py3.txt
 
 VOLUME /opt/data
 VOLUME /opt/cache
+VOLUME /code/static/assets
+VOLUME /code/config
 
 # Expose right ports
 EXPOSE 80
 
 # start supervisor to run our wsgi server
-CMD ["supervisord", "-c", "/etc/supervisord.conf", "-n"]
+CMD ["supervisord", "-c", "./supervisord.conf", "-n"]

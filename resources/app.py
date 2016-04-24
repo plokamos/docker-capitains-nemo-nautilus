@@ -7,6 +7,7 @@ from werkzeug.contrib.cache import FileSystemCache
 from flask_cache import Cache
 from lxml import etree
 import os
+from config import nemo_config
      
 d = "/opt/data"
 app = Flask("Nautilus")
@@ -27,15 +28,7 @@ nemo = Nemo(
     base_url="",
     api_url="/api/cts",
     retriever=nautilus.retriever,
-    chunker={
-        "default": Nemo.level_grouper
-    },
-    css=[
-        "/code/static/assets/nemo.secondary/css/theme-ext.css"
-    ],
-    transform={
-        "default": "/code/static/assets/xslt/epidocShort.xsl"
-    }
+    **nemo_config
 )
 # We register its routes
 nemo.register_routes()
