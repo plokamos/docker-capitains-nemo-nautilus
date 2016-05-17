@@ -32,4 +32,4 @@ VOLUME /code/config
 EXPOSE 80
 
 # start supervisor to run our wsgi server
-CMD ["supervisord", "-c", "./supervisord.conf", "-n"]
+CMD ["python", "app.py"]
