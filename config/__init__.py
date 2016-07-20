@@ -1,8 +1,9 @@
 from flask_nemo import Nemo
+from flask_nemo.chunker import level_grouper
 
 nemo_config = {
     "chunker": {
-        "default": Nemo.level_grouper
+        "default": level_grouper
     },
     "css": [
         "/code/static/assets/nemo.secondary/css/theme-ext.css"
