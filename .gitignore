@@ -6,3 +6,5 @@ volumes/repositories/*
 volumes/cache/*
 !volumes/cache/Readme.md
 cache
+nemo_plokamos_plugin/*
+plokamos_keys.sh
